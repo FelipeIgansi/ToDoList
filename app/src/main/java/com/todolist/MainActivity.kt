@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
 
                 val editTextTitle = dialog.findViewById<EditText>(R.id.editTextTask)
                 val buttonAddTodo = dialog.findViewById<Button>(R.id.button_register)
+                val buttonCancelarTodo = dialog.findViewById<Button>(R.id.button_cancel)
 
                 buttonAddTodo.setOnClickListener {
                     val title = editTextTitle.text.toString().trim()
@@ -54,6 +55,9 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
                     } else {
                         Toast.makeText(this, "Insira um título válido.", Toast.LENGTH_SHORT).show()
                     }
+                }
+                buttonCancelarTodo.setOnClickListener{
+                    dialog.dismiss()
                 }
 
                 dialog.show()
