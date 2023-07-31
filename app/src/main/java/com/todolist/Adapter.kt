@@ -6,7 +6,11 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import androidx.recyclerview.widget.RecyclerView
 
-class Adapter(private val itens: List<ToDoModel>):RecyclerView.Adapter<Adapter.ViewHolder>() {
+class Adapter(private val itens: MutableList<ToDoModel>):RecyclerView.Adapter<Adapter.ViewHolder>() {
+    fun addItem(item: ToDoModel) {
+        itens.add(item)
+        notifyDataSetChanged()
+    }
 
     class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
          val checkBoxTarefa: CheckBox = itemView.findViewById(R.id.chack_todo_item)
